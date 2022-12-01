@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V105.SystemInfo;
 using OpenQA.Selenium.Support.UI;
 
 namespace Assignment4
@@ -16,8 +17,8 @@ namespace Assignment4
 
         #region Constants
 
-        //private static readonly string url = "http://localhost/getQuote.html";
-        private static readonly string url = "http://localhost:8888/prog8170a04/getQuote.html";
+        private static readonly string url = "http://localhost/getQuote.html";
+        //private static readonly string url = "http://localhost:8888/prog8170a04/getQuote.html";
         private static readonly string noInsuranceTxt = "No Insurance for you!! Driver Age / Experience Not Correct";
         private static readonly string manyAccident = "No Insurance for you!!  Too many accidents - go take a course!";
 
@@ -27,6 +28,9 @@ namespace Assignment4
         private IWebDriver driver;
         public IDictionary<string, object> vars { get; private set; }
         private IJavaScriptExecutor js;
+
+        private System.Drawing.Size size = new System.Drawing.Size(1841, 1032);
+ 
         [SetUp]
         public void SetUp()
         {
@@ -44,8 +48,11 @@ namespace Assignment4
         [Test]
         public void case1Age25Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            //Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+
+            //Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -66,17 +73,20 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).Click();
             driver.FindElement(By.Id("accidents")).SendKeys("0");
             driver.FindElement(By.Id("btnSubmit")).Click();
-            js.ExecuteScript("window.scrollTo(0,168)");
-            {
-                string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-                Assert.That(value, Is.EqualTo("$2500"));
-            }
+
+            //Assert
+            string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo("$2500"));
+            
         }
         [Test]
         public void case2Age25Experience3Accident4()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -99,16 +109,21 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).SendKeys("4");
             driver.FindElement(By.CssSelector("body")).Click();
             driver.FindElement(By.Id("btnSubmit")).Click();
-            {
-                string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-                Assert.That(value, Is.EqualTo(manyAccident));
-            }
+
+            // Assert
+            string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo(manyAccident));
+
         }
+        
         [Test]
         public void case4Age27Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+            
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -128,14 +143,20 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).Click();
             driver.FindElement(By.Id("accidents")).SendKeys("0");
             driver.FindElement(By.Id("btnSubmit")).Click();
+            
+            // Assert
             var elements = driver.FindElements(By.Id("phone-error"));
             Assert.True(elements.Count > 0);
         }
+
         [Test]
         public void case5Age28Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -155,15 +176,20 @@ namespace Assignment4
             driver.FindElement(By.Id("experience")).SendKeys("3");
             driver.FindElement(By.Id("accidents")).SendKeys("0");
             driver.FindElement(By.Id("btnSubmit")).Click();
-            js.ExecuteScript("window.scrollTo(0,168)");
+            
+            // Assert
             var elements = driver.FindElements(By.Id("email-error"));
             Assert.True(elements.Count > 0);
         }
+
         [Test]
         public void case3Age35Experience10Accident2()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -188,16 +214,20 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).SendKeys("2");
             driver.FindElement(By.CssSelector("body")).Click();
             driver.FindElement(By.Id("btnSubmit")).Click();
-            {
-                string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-                Assert.That(value, Is.EqualTo("$1350"));
-            }
+
+            // Assert
+            string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+            Assert.That(value, Is.EqualTo("$1350"));
         }
+        
         [Test]
         public void case6Age35Experience17Accident1()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+            
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -222,14 +252,20 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).SendKeys("1");
             driver.FindElement(By.CssSelector("body")).Click();
             driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Assert
             var elements = driver.FindElements(By.Id("postalCode-error"));
             Assert.True(elements.Count > 0);
         }
+        
         [Test]
         public void case8Age37Experience8AccidentNull()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+            
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -248,14 +284,20 @@ namespace Assignment4
             driver.FindElement(By.Id("experience")).Click();
             driver.FindElement(By.Id("experience")).SendKeys("8");
             driver.FindElement(By.Id("btnSubmit")).Click();
+            
+            // Assert
             var elements = driver.FindElements(By.Id("accidents-error"));
             Assert.True(elements.Count > 0);
         }
+        
         [Test]
         public void case9Age45ExperienceNullAccident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -278,14 +320,20 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).SendKeys("0");
             driver.FindElement(By.CssSelector("body")).Click();
             driver.FindElement(By.Id("btnSubmit")).Click();
+
+            // Assert
             var elements = driver.FindElements(By.Id("experience-error"));
             Assert.True(elements.Count > 0);
         }
+        
         [Test]
         public void case7AgeNullExperience5Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
-            driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
+            // Arrange
+            driver.Navigate().GoToUrl(url);
+            driver.Manage().Window.Size = size;
+            
+            // Act
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
             driver.FindElement(By.Id("lastName")).SendKeys("Li");
@@ -308,6 +356,8 @@ namespace Assignment4
             driver.FindElement(By.Id("accidents")).SendKeys("0");
             driver.FindElement(By.CssSelector("body")).Click();
             driver.FindElement(By.Id("btnSubmit")).Click();
+            
+            // Assert
             var elements = driver.FindElements(By.Id("age-error"));
             Assert.True(elements.Count > 0);
         }
@@ -558,7 +608,7 @@ namespace Assignment4
             var value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
 
             //Assert
-            Assert.AreEqual("1875", value);
+            Assert.AreEqual("$1875", value);
         }
 
 
