@@ -27,7 +27,7 @@ public class Assignment4SuiteTest {
     driver.Quit();
   }
   [Test]
-  public void age25Experience3Accident0() {
+  public void case1Age25Experience3Accident0() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -57,7 +57,7 @@ public class Assignment4SuiteTest {
     }
   }
   [Test]
-  public void age25Experience3Accident4() {
+  public void case2Age25Experience3Accident4() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -88,7 +88,7 @@ public class Assignment4SuiteTest {
     }
   }
   [Test]
-  public void age27Experience3Accident0() {
+  public void case4Age27Experience3Accident0() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -100,7 +100,7 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.Id("postalCode")).Click();
     driver.FindElement(By.Id("postalCode")).SendKeys("N2K 0H2");
     driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("111-111-1111");
+    driver.FindElement(By.Id("phone")).SendKeys("abcdefg");
     driver.FindElement(By.Id("email")).Click();
     driver.FindElement(By.Id("email")).SendKeys("liujin834@gmail.com");
     driver.FindElement(By.Id("age")).Click();
@@ -110,13 +110,11 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.Id("accidents")).Click();
     driver.FindElement(By.Id("accidents")).SendKeys("0");
     driver.FindElement(By.Id("btnSubmit")).Click();
-    {
-      string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-      Assert.That(value, Is.EqualTo("$2500"));
-    }
+    var elements = driver.FindElements(By.Id("phone-error"));
+    Assert.True(elements.Count > 0);
   }
   [Test]
-  public void age28Experience3Accident0() {
+  public void case5Age28Experience3Accident0() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -131,7 +129,7 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.Id("phone")).Click();
     driver.FindElement(By.Id("phone")).SendKeys("111-111-1111");
     driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("liujin834@gmail.com");
+    driver.FindElement(By.Id("email")).SendKeys("111222333");
     driver.FindElement(By.CssSelector("body")).Click();
     driver.FindElement(By.Id("age")).Click();
     driver.FindElement(By.Id("age")).SendKeys("28");
@@ -139,13 +137,11 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.Id("accidents")).SendKeys("0");
     driver.FindElement(By.Id("btnSubmit")).Click();
     js.ExecuteScript("window.scrollTo(0,168)");
-    {
-      string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-      Assert.That(value, Is.EqualTo("$2500"));
-    }
+    var elements = driver.FindElements(By.Id("email-error"));
+    Assert.True(elements.Count > 0);
   }
   [Test]
-  public void age35Experience10Accident2() {
+  public void case3Age35Experience10Accident2() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -178,7 +174,7 @@ public class Assignment4SuiteTest {
     }
   }
   [Test]
-  public void age35Experience17Accident1() {
+  public void case6Age35Experience17Accident1() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -190,7 +186,7 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.CssSelector("body")).Click();
     driver.FindElement(By.Id("city")).SendKeys("Waterloo");
     driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).SendKeys("N2K 0H2");
+    driver.FindElement(By.Id("postalCode")).SendKeys("UHGESDF");
     driver.FindElement(By.Id("phone")).Click();
     driver.FindElement(By.Id("phone")).SendKeys("111-111-1111");
     driver.FindElement(By.CssSelector(".col-md-8")).Click();
@@ -205,13 +201,11 @@ public class Assignment4SuiteTest {
     driver.FindElement(By.Id("accidents")).SendKeys("1");
     driver.FindElement(By.CssSelector("body")).Click();
     driver.FindElement(By.Id("btnSubmit")).Click();
-    {
-      string value = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-      Assert.That(value, Is.EqualTo("$1350"));
-    }
+    var elements = driver.FindElements(By.Id("postalCode-error"));
+    Assert.True(elements.Count > 0);
   }
   [Test]
-  public void age37Experience8AccidentNull() {
+  public void case8Age37Experience8AccidentNull() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -236,7 +230,7 @@ public class Assignment4SuiteTest {
     Assert.True(elements.Count > 0);
   }
   [Test]
-  public void age45ExperienceNullAccident0() {
+  public void case9Age45ExperienceNullAccident0() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();
@@ -265,7 +259,7 @@ public class Assignment4SuiteTest {
     Assert.True(elements.Count > 0);
   }
   [Test]
-  public void ageNullExperience5Accident0() {
+  public void case7AgeNullExperience5Accident0() {
     driver.Navigate().GoToUrl("http://localhost/getQuote.html");
     driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
     driver.FindElement(By.Id("firstName")).Click();

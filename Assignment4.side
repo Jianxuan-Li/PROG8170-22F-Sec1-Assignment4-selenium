@@ -5,7 +5,7 @@
   "url": "http://localhost",
   "tests": [{
     "id": "854345e5-c949-4e57-a308-168681bae728",
-    "name": "Age25_Experience3_Accident0",
+    "name": "Case1_Age25_Experience3_Accident0",
     "commands": [{
       "id": "caba0888-1e39-4778-a7d1-85e7373bea69",
       "comment": "",
@@ -321,7 +321,7 @@
     }]
   }, {
     "id": "2cd35b87-0321-4788-8018-30e3b3c319bf",
-    "name": "Age25_Experience3_Accident4",
+    "name": "Case2_Age25_Experience3_Accident4",
     "commands": [{
       "id": "4397f544-8b85-442d-a5fc-534ed9e5d837",
       "comment": "",
@@ -654,7 +654,7 @@
     }]
   }, {
     "id": "fa7ae727-56d3-4334-8b35-7cecc1854ece",
-    "name": "Age35_Experience10_Accident2",
+    "name": "Case3_Age35_Experience10_Accident2",
     "commands": [{
       "id": "e23dc00f-9cc1-4da4-bfb8-9d60e50590a5",
       "comment": "",
@@ -1005,7 +1005,7 @@
     }]
   }, {
     "id": "2a337501-a808-462a-8974-d53ddd4dbbda",
-    "name": "Age27_Experience3_Accident0",
+    "name": "Case4_Age27_Experience3_Accident0",
     "commands": [{
       "id": "c4206b4e-a85f-4076-b3aa-9d13aa1d5cef",
       "comment": "",
@@ -1159,7 +1159,7 @@
         ["xpath=//form[@id='addForm']/div/div/div[2]/div[5]/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/input", "xpath:position"]
       ],
-      "value": "111-111-1111"
+      "value": "abcdefg"
     }, {
       "id": "5030f2c5-dd3c-4430-bac8-3dec0c95a856",
       "comment": "",
@@ -1291,20 +1291,21 @@
     }, {
       "id": "dbf0f166-91f9-4733-8070-7ed5cf415869",
       "comment": "",
-      "command": "assertValue",
-      "target": "id=finalQuote",
+      "command": "assertElementPresent",
+      "target": "id=phone-error",
       "targets": [
-        ["id=finalQuote", "id"],
-        ["name=finalQuote", "name"],
-        ["css=#finalQuote", "css:finder"],
-        ["xpath=//input[@id='finalQuote']", "xpath:attributes"],
-        ["xpath=//div[4]/input", "xpath:position"]
+        ["id=phone-error", "id"],
+        ["css=#phone-error", "css:finder"],
+        ["xpath=//label[@id='phone-error']", "xpath:attributes"],
+        ["xpath=//form[@id='addForm']/div/div/div[2]/div[5]/div/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,'Phone Number must follow the patterns 111-111-1111 or (111)111-1111')]", "xpath:innerText"]
       ],
-      "value": "$2500"
+      "value": ""
     }]
   }, {
     "id": "d8656425-2049-46e0-ae4a-56209493201c",
-    "name": "Age28_Experience3_Accident0",
+    "name": "Case5_Age28_Experience3_Accident0",
     "commands": [{
       "id": "4bf1cb20-05d1-4727-a2d3-ac6db70d74b4",
       "comment": "",
@@ -1500,7 +1501,7 @@
         ["xpath=//form[@id='addForm']/div/div/div[2]/div[5]/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[5]/div[2]/input", "xpath:position"]
       ],
-      "value": "liujin834@gmail.com"
+      "value": "111222333"
     }, {
       "id": "a790f377-6cac-4b0f-937b-0f9aaf95a694",
       "comment": "",
@@ -1593,20 +1594,21 @@
     }, {
       "id": "181a4836-6b5e-473d-a48d-fe26bd150b30",
       "comment": "",
-      "command": "assertValue",
-      "target": "id=finalQuote",
+      "command": "assertElementPresent",
+      "target": "id=email-error",
       "targets": [
-        ["id=finalQuote", "id"],
-        ["name=finalQuote", "name"],
-        ["css=#finalQuote", "css:finder"],
-        ["xpath=//input[@id='finalQuote']", "xpath:attributes"],
-        ["xpath=//div[4]/input", "xpath:position"]
+        ["id=email-error", "id"],
+        ["css=#email-error", "css:finder"],
+        ["xpath=//label[@id='email-error']", "xpath:attributes"],
+        ["xpath=//form[@id='addForm']/div/div/div[2]/div[5]/div[2]/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,'Must be a valid email address')]", "xpath:innerText"]
       ],
-      "value": "$2500"
+      "value": ""
     }]
   }, {
     "id": "7e59cc55-bfac-47d9-a958-a03be79d331d",
-    "name": "Age35_Experience17_Accident1",
+    "name": "Case6_Age35_Experience17_Accident1",
     "commands": [{
       "id": "d00c84c5-b529-465f-99cd-2222efde5fe0",
       "comment": "",
@@ -1753,7 +1755,7 @@
         ["xpath=//form[@id='addForm']/div/div/div[2]/div[4]/div[3]/input", "xpath:idRelative"],
         ["xpath=//div[4]/div[3]/input", "xpath:position"]
       ],
-      "value": "N2K 0H2"
+      "value": "UHGESDF"
     }, {
       "id": "79f3453d-64ea-468f-8a16-dede6464dd09",
       "comment": "",
@@ -1944,20 +1946,21 @@
     }, {
       "id": "381e3d50-964c-4e6c-97b6-66a520439ee0",
       "comment": "",
-      "command": "assertValue",
-      "target": "id=finalQuote",
+      "command": "assertElementPresent",
+      "target": "id=postalCode-error",
       "targets": [
-        ["id=finalQuote", "id"],
-        ["name=finalQuote", "name"],
-        ["css=#finalQuote", "css:finder"],
-        ["xpath=//input[@id='finalQuote']", "xpath:attributes"],
-        ["xpath=//div[4]/input", "xpath:position"]
+        ["id=postalCode-error", "id"],
+        ["css=#postalCode-error", "css:finder"],
+        ["xpath=//label[@id='postalCode-error']", "xpath:attributes"],
+        ["xpath=//form[@id='addForm']/div/div/div[2]/div[4]/div[3]/label[2]", "xpath:idRelative"],
+        ["xpath=//label[2]", "xpath:position"],
+        ["xpath=//label[contains(.,'Postal Code must follow the pattern A1A 1A1')]", "xpath:innerText"]
       ],
-      "value": "$1350"
+      "value": ""
     }]
   }, {
     "id": "226038a3-470b-41f6-82bb-4281c85c74e8",
-    "name": "AgeNull_Experience5_Accident0",
+    "name": "Case7_AgeNull_Experience5_Accident0",
     "commands": [{
       "id": "2363d4d4-8f95-4a5f-b511-c42db74b4014",
       "comment": "",
@@ -2281,7 +2284,7 @@
     }]
   }, {
     "id": "50193bb1-cbc4-4bb9-8b9d-067daccc4c87",
-    "name": "Age37_Experience8_AccidentNull",
+    "name": "Case8_Age37_Experience8_AccidentNull",
     "commands": [{
       "id": "e1ad792f-2b5c-404d-aa74-c56341ac1224",
       "comment": "",
@@ -2550,7 +2553,7 @@
     }]
   }, {
     "id": "bfb57525-de74-4ca7-bfb8-a6a65b9c021f",
-    "name": "Age45_ExperienceNull_Accident0",
+    "name": "Case9_Age45_ExperienceNull_Accident0",
     "commands": [{
       "id": "7c5a10da-e105-47f0-baa7-439c7e2362e9",
       "comment": "",
