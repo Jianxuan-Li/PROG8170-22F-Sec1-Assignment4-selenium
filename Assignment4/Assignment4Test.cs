@@ -13,6 +13,8 @@ namespace Assignment4
     [TestFixture]
     public class Assignment4Test
     {
+        //private static readonly string url = "http://localhost/getQuote.html";
+        private static readonly string url = "http://localhost:8888/prog8170a04/getQuote.html";
         private IWebDriver driver;
         public IDictionary<string, object> vars { get; private set; }
         private IJavaScriptExecutor js;
@@ -33,7 +35,7 @@ namespace Assignment4
         [Test]
         public void age25Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -64,7 +66,7 @@ namespace Assignment4
         [Test]
         public void age25Experience3Accident4()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -96,7 +98,7 @@ namespace Assignment4
         [Test]
         public void age27Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -125,7 +127,7 @@ namespace Assignment4
         [Test]
         public void age28Experience3Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -155,7 +157,7 @@ namespace Assignment4
         [Test]
         public void age35Experience10Accident2()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -189,7 +191,7 @@ namespace Assignment4
         [Test]
         public void age35Experience17Accident1()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -223,7 +225,7 @@ namespace Assignment4
         [Test]
         public void age37Experience8AccidentNull()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -249,7 +251,7 @@ namespace Assignment4
         [Test]
         public void age45ExperienceNullAccident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
@@ -276,10 +278,11 @@ namespace Assignment4
             var elements = driver.FindElements(By.Id("experience-error"));
             Assert.True(elements.Count > 0);
         }
+
         [Test]
         public void ageNullExperience5Accident0()
         {
-            driver.Navigate().GoToUrl("http://localhost/getQuote.html");
+            driver.Navigate().GoToUrl(url);
             driver.Manage().Window.Size = new System.Drawing.Size(1841, 1032);
             driver.FindElement(By.Id("firstName")).Click();
             driver.FindElement(By.Id("firstName")).SendKeys("Jianxuan");
